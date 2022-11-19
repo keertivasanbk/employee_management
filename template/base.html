@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.2/css/bootstrap.min.css" integrity="sha512-CpIKUSyh9QX2+zSdfGP+eWLx23C8Dj9/XmHjZY2uDtfkdLGo0uY12jgcnkX9vXOgYajEKb/jiw67EYm+kBf+6g==" crossorigin="anonymous" referrerpolicy="no-referrer" />    <title></title>
+    <script src="{% static 'timer.js'%}"></script>
+  </head>
+<body>
+  <style>
+    .ml-auto{
+    left: auto !important;
+    right: 0px;
+}
+  </style>
+    <nav class="navbar navbar-expand-lg bg-dark">
+        <div class="container-fluid">
+            <a href="{% url 'employe:home' %}" class="navbar-brand" style="color:white;">Employe Management</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+
+                    {% if user.is_authenticated and user.is_superuser %}
+                    <li class="nav-item">
+                      <a class="nav-link">{{user.username}}</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'employe:create' %}" style="color:white;">Create User</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'employe:list'%}" style="color:white;">Employe List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'employe:feedback_list' %}" style="color:white;">FeedBack</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'employe:admin_feedback' %}" style="color:white;">Admin FeedBack</a>
+                  </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'logout' %}" style="color:white;">Logout</a>
+                  </li>
+                 
+                      {% elif user.is_authenticated %}
+                      <li class="nav-item">
+                        <a class="nav-link" href="{% url 'employe:userhome' %}" style="color:white;">Home</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{% url 'employe:profile_details' %}" style="color:white;">Profile</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{% url 'employe:usr_note' %}" style="color:white;">Notification</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}" style="color:white;">Logout</a>
+                      </li>
+                      
+                    {% else %}
+                    <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}" style="color:white;">Login</a>
+                    </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'employe:about' %}" style="color:white;">About us</a>
+                  </li>
+                  {% endif %}
+                </ul>
+            </div>
+        </div>
+       
+    </nav>
+    <div class="container-fluid">
+        {% block body %}
+        {% endblock %}
+    </div>    
+</body>
+</html>

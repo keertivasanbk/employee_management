@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container">
+
+    <table class="table">
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Role</th>
+            <th scope="col">Comments</th>
+        </tr>
+        <tbody>
+            <tr>
+                <td>{{feedback_detail.name}}</td>
+                <td>{{feedback_detail.role}}</td>
+                <td>{{feedback_detail.comments}}</td>   
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock%}

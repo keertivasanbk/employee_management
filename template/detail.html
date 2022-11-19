@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block body %}
+{% load static %}
+<div class="container">
+    <p>Employe Detail</p>
+    <img src="{{employe_detail.qrcode.url}}"></img>
+    <p>Name : {{employe_detail.user.username}}</p>
+    <p>Date of Birth : {{employe_detail.dob}}</p>
+    <p>Email :{{employe_detail.user.email}}</p>
+    <p>Role :{{employe_detail.employe_role}}</p>
+    <p>Phone Number :{{employe_detail.phone_number}}</p>
+    <p>Last Login :{{employe_detail.user.last_login}}</p>
+    <p>Last Logout :{{employe_detail.logout_time}}</p>
+    <a href="{% url 'employe:update' employe_detail.id %}" class="btn btn-warning">Update</a>
+    <a href="{% url 'employe:delete' employe_detail.id %}" class="btn btn-danger">Delete</a>
+</div>
+{% endblock %}

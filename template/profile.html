@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container">
+<h1 class="text-center">Profile Details</h1>
+<br>
+<p class="text-center">Name : {{user.username}}</p>
+<p class="text-center">Email :{{user.email}}</p>
+{% for r in db %}
+<p class="text-center">Date of Birth : {{r.dob}}</p>
+<p class="text-center">Phone Number :{{r.phone_number}}</p>
+<img class='text-center'src="{{r.qrcode.url}}"></img>
+    {% endfor %}
+</div>
+{% endblock %}

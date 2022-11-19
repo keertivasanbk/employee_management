@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="d-flex justify-content-center">
+    <ul>
+            {% for i in feedback_list%}
+            <li><a class="nav-link" href="{% url 'employe:feedback_detail' i.id  %}"  >{{i}}</a></li>
+            {% endfor%}
+    </ul>
+</div>
+{% endblock %}
