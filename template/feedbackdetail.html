@@ -1,19 +1,34 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<div class="container">
 
+<style>
+    body{
+            background-image: url("../static/adminBack.jpg");
+    }
+    table, th, td {
+              border: 1px solid black;
+              
+    }
+
+    
+</style>
+
+<div class="container">
+    <h1 style="text-align: center;">The Mail</h1>
     <table class="table">
         <tr>
             <th scope="col">Name</th>
             <th scope="col">Role</th>
             <th scope="col">Comments</th>
+            <th scope="col">Time</th>
         </tr>
         <tbody>
             <tr>
-                <td>{{feedback_detail.name}}</td>
-                <td>{{feedback_detail.role}}</td>
-                <td>{{feedback_detail.comments}}</td>   
+                <td><b>{{feedback_detail.name}}</b></td>
+                <td><b>{{feedback_detail.role}}</b></td>
+                <td><b>{{feedback_detail.comments}}</b></td>
+                <td><b>{{feedback_detail.sent_time}}</b></td>   
             </tr>
         </tbody>
     </table>

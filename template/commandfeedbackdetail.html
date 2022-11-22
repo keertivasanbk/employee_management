@@ -1,0 +1,25 @@
+{%extends 'base.html'%}
+{%block body%}
+{%load static %}
+<div class="container">
+    <h1 style="text-align:center">The Feedback</h1>
+    <table class="table">
+        <tr>
+            <th scope="col">Member_ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Role</th>
+            <th scope="col">Comments</th>
+            <th scope="col">Timing</th>
+        </tr>
+        <tbody>
+            <tr>
+    <td><p>{{feedback_detail.id}}</p></td>
+    <td><p>{{feedback_detail.name}}</p></td>
+    <td><p>{{feedback_detail.role}}</p></td>
+    <td><p>{{feedback_detail.comments}}</p></td>
+    <td><p>{{feedback_detail.sent_time}}</p></td>
+    </tr>
+    </tbody>
+</table>
+</div>
+{%endblock%}

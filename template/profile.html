@@ -1,14 +1,21 @@
 {% extends 'base.html' %}
 {% block body %}
 <div class="container">
-<h1 class="text-center">Profile Details</h1>
+<h1 class="text-center"><b>My Profile</b></h1>
 <br>
-<p class="text-center">Name : {{user.username}}</p>
-<p class="text-center">Email :{{user.email}}</p>
+<h5 class="text-center">ID : <b>{{user.id}}</b></h5>
+<h5 class="text-center">Name : <b>{{user.username}}</b></h5>
+<h5 class="text-center">Email :<b>{{user.email}}</b></h5>
+
 {% for r in db %}
-<p class="text-center">Date of Birth : {{r.dob}}</p>
-<p class="text-center">Phone Number :{{r.phone_number}}</p>
-<img class='text-center'src="{{r.qrcode.url}}"></img>
+<h5 class="text-center">Date of Birth :<b>{{r.dob}}</b></h5>
+<h5 class="text-center">Phone Number :<b>{{r.phone_number}}</b></h5>
+<div class="container" style="text-align: center;">
+<img class='text-center'src="{{r.qrcode.url}}" />
+</div>
     {% endfor %}
+    <div class="container" style="text-align: center;">
+    <button  class="btn btn-primary" onclick="window.print()">Print</button>
+    </div>
 </div>
 {% endblock %}

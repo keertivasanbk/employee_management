@@ -2,6 +2,8 @@
 <html lang="en">
   {% load static %}
 <head>
+  {%block head%}
+  {%endblock%}
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,16 +18,13 @@
     right: 0px;
 }
   </style>
-    <nav class="navbar navbar-expand-lg bg-dark">
+    <nav class="navbar navbar-expand-sm bg-dark">
         <div class="container-fluid">
-            <a href="{% url 'employe:home' %}" class="navbar-brand" style="color:white;">Employe Management</a>
+            <a href="{% url 'employe:home' %}" class="navbar-brand" style="color:white;">DLK Technologies</a>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav ml-auto">
 
                     {% if user.is_authenticated and user.is_superuser %}
-                    <li class="nav-item">
-                      <a class="nav-link">{{user.username}}</a>
-                    </li>
                     <li class="nav-item">
                       <a class="nav-link" href="{% url 'employe:create' %}" style="color:white;">Create User</a>
                     </li>
@@ -33,11 +32,15 @@
                       <a class="nav-link" href="{% url 'employe:list'%}" style="color:white;">Employe List</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'employe:feedback_list' %}" style="color:white;">FeedBack</a>
+                        <a class="nav-link" href="{% url 'employe:feedback_list' %}" style="color:white;">Recieved Mail</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="{% url 'employe:admin_feedback' %}" style="color:white;">Admin FeedBack</a>
+                      <a class="nav-link" href="{% url 'employe:admin_feedback' %}" style="color:white;">Admin Convey</a>
                   </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{% url 'employe:commonfeedbacklist' %}" style="color:white;">Feedback</a>
+                </li>
+                  
                     <li class="nav-item">
                       <a class="nav-link" href="{% url 'logout' %}" style="color:white;">Logout</a>
                   </li>
@@ -54,6 +57,9 @@
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="{% url 'logout' %}" style="color:white;">Logout</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{% url 'employe:UserToAdmin' %}" style="color:white;">UserTOadmin</a>
                       </li>
                       
                     {% else %}

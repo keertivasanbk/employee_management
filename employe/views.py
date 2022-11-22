@@ -86,6 +86,7 @@ class EmployeUpdate(UpdateView):
     template_name = "update.html"
 
 
+
 class EmployeDelete(DeleteView):
     model = UserProfile
     success_url = reverse_lazy("employe:list")
@@ -106,9 +107,31 @@ def Profileview(request):
 
 class FeedbackView(CreateView):
     model = FeedBack
-    fields = '__all__'
+    fields =  ('name','role','comments')
     success_url = reverse_lazy("employe:home")
-    template_name = "aboutus.html"
+    template_name = "UsertoAdmin.html"
+
+
+class Aboutus(CreateView):
+    model=Commanfeedback
+    fields=('name','role','comments')
+    success_url=reverse_lazy("employe:about")
+    template_name="aboutus.html"
+
+class commanfeedbacklist(ListView):
+    context_object_name='commanfeedback_list'
+    model=Commanfeedback
+    template_name='commanfeedbacklist.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['commanfeedback_list'] = Commanfeedback.objects.all()
+        return context
+
+class commanfeedbackdetail(DetailView):
+    context_object_name = 'feedback_detail'
+    model = Commanfeedback
+    template_name = 'commandfeedbackdetail.html'
 
 
 class FeedBackList(ListView):
@@ -122,7 +145,7 @@ class FeedBackDetail(DetailView):
     model = FeedBack
     template_name = 'feedbackdetail.html'
 
-class Admin2user(CreateView):
+class Admin2user(CreateView):   # admin to user feedback
     model = AdmintoUser
     fields = ('user','comments')
     success_url = reverse_lazy('employe:feedback_list')

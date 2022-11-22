@@ -15,3 +15,4 @@ class UserProfileInfo(forms.ModelForm):
         fields = ('employe_role','dob','phone_number','qrcode')
 
 
+

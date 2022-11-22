@@ -1,6 +1,13 @@
 {% extends 'base.html'%}
+{%load static%}
 {% load bootstrap5 %}
 {% block body %}
+<style>
+    body{
+        background-image: url("../static/admin.jpg");
+    }
+
+</style>
 <div class="container">
     <h2>Create User</h2>
     <form enctype="multipart/form-data" method="POST">

@@ -1,0 +1,38 @@
+{%extends 'base.html'%}
+{%block body%}
+
+
+<style>
+    body{
+            background-image: url("../static/adminBack.jpg");
+    }
+    table, th, td {
+              border: 1px solid black;
+              
+    }
+
+    
+</style>
+
+
+
+
+<div class="container">
+    <h1 style="text-align: center;"><b>Feedback Sent member list</b></h1>
+    <div class="d-flex justify-content-center">    
+            <table class="table" style="width: 30%;">
+            <tr>
+                    <th scope="col" style="text-align: center;">Member ID</th>
+                    <th scope="col" style="text-align: center;">Name</th>
+            </tr>
+        {% for i in commanfeedback_list%}
+        <tr>
+            <td style="text-align: center;"><a class="nav-link" href="{% url 'employe:commonfeedbackdetail' i.id  %}"> <b>{{i.id}}</b></a></td>
+            <td style="text-align: center;"><a class="nav-link" href="{% url 'employe:commonfeedbackdetail' i.id  %}"> <b>{{i}}</b></a> </td>
+        </tr>
+        {% endfor %}
+        </table>
+
+</div>
+</div>
+{%endblock%}

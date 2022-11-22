@@ -98,31 +98,50 @@
     <div class="d-flex justify-content-center">
     
     <div class="mySlides fade">
-      <img src="../static/about1.jpg" height="700px" width="1500px">
-      <div class="text">Caption Text</div>
+      <img src="../static/about1.jpg" height="900px" width="2000px">
+      <div class="text"><h4> grow higher and higher by each day</h4></div>
     </div>
     
     <div class="mySlides fade">
-      <img src="../static/about2.png" height="700px" width="1500px">
+      <img src="../static/about2.png" height="800px" width="2000px">
       <div class="text">Caption Two</div>
     </div>
     
     <div class="mySlides fade">
-      <img src="../static/about3.jpg" height="700px" width="1500px">
+      <img src="../static/about3.jpg" height="800px" width="2000px">
       <div class="text">Caption Three</div>
+    </div>
+
+    <div class="mySlides fade">
+      <img src="../static/about4.jpg" height="800px" width="2000px">
+      <div class="text">Caption Four</div>
     </div>
     
     <!-- <a class="prev" onclick="plusSlides(-1)">❮</a>
     <a class="next" onclick="plusSlides(1)">❯</a> -->
-    
     </div>
-    <br>
-    
+
     <div style="text-align:center">
       <span class="dot"></span> 
       <span class="dot"></span> 
       <span class="dot"></span> 
     </div>
+    <br>
+    
+
+    <footer>
+    <div class="d-flex justify-content-center">
+      <div class="container">
+      <h4 style="text-align: center;" id="about">Feedback</h4>
+      <form method="post">
+          {% csrf_token %}
+          {% bootstrap_form form%}
+          <input type="submit" value="submit" class="btn btn-warning">
+      </form>
+      </div>
+    </div>
+    </footer>
+    
     
     <script>
     let slideIndex = 0;
@@ -136,27 +155,13 @@ function showSlides() {
     slides[i].style.display = "";  
   }
   slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 1}    
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
+  if (slideIndex > slides.length) {slideIndex = 1}     for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" acte", "");
   }
   slides[slideIndex-1].style.display = "block";  
   dots[slideIndex-1].className += " active";
   setTimeout(showSlides, 2000); // Change image every 2 seconds
 }
     </script>
-
-
-<footer>
-
-    <div class="container">
-        <h4 id="about">Feedback</h4>
-        <form method="post">
-            {% csrf_token %}
-            {% bootstrap_form form%}
-            <input type="submit" value="submit" class="btn btn-warning">
-        </form>
-    </div>
-</footer>
 
 {% endblock %}

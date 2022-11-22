@@ -58,7 +58,7 @@ class FeedBack(models.Model):
     name = models.CharField(max_length=120)
     role = models.CharField(choices=EMPLOYE_ROLE,max_length=120)
     comments = models.TextField()
-
+    sent_time = models.DateTimeField(blank=True,null=True,default=timezone.now())
 
     def __str__(self):
         return self.name
@@ -69,3 +69,11 @@ class AdmintoUser(models.Model):
     comments = models.TextField()
     sent_time = models.DateTimeField(blank=True,null=True,default=timezone.now())
 
+class Commanfeedback(models.Model):
+    name=models.CharField(max_length=30)
+    role = models.CharField(choices=EMPLOYE_ROLE,max_length=120)
+    comments=models.CharField(max_length=120)
+    sent_time = models.DateTimeField(blank=True,null=True,default=timezone.now())
+
+    def __str__(self):
+        return self.name

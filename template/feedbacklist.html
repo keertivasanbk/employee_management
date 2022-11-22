@@ -1,11 +1,37 @@
 {% extends 'base.html' %}
-
+{%load static%}
 {% block body %}
-<div class="d-flex justify-content-center">
-    <ul>
+<style>
+    body{
+        background-image: url('../static/adminBack.jpg');
+    }
+
+    table, th, td {
+                  border: 1px solid black;
+                  text-align: center;
+                  
+     }
+</style>
+   
+<div class="container">
+    <h1 style="text-align: center;"><b>Recieved Mail From Employees</b></h1>
+    <div class="d-flex justify-content-center">    
+            <table class="table" style="width: 30%;">
+            <tr>
+                    <th scope="col" style="text-align: center;">Employee ID</th>
+                    <th scope="col" style="text-align: center;">Employee Name</th>
+            </tr>
+           
             {% for i in feedback_list%}
-            <li><a class="nav-link" href="{% url 'employe:feedback_detail' i.id  %}"  >{{i}}</a></li>
-            {% endfor%}
-    </ul>
+            <tr>
+                <td><a class="nav-link" href="{% url 'employe:feedback_detail' i.id  %}"  ><b>{{i.id}}</b></a></td>
+                <td><a class="nav-link" href="{% url 'employe:feedback_detail' i.id  %}"  ><b>{{i}}</b></a></td>
+            </tr>
+            {% endfor %}
+
+            </table>
+
 </div>
+</div>
+
 {% endblock %}

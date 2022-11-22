@@ -1,0 +1,18 @@
+{%extends 'base.html'%}
+{% load bootstrap5 %}
+{%block body%}
+
+
+<div class="d-flex justify-content-center">
+    <div class="container">
+    <h4 style="text-align: center;" id="about">Feedback</h4>
+    <form method="post">
+        {% csrf_token %}
+        {% bootstrap_form form%}
+        <input type="submit" value="submit" class="btn btn-warning">
+    </form>
+    </div>
+
+  </div>
+
+{%endblock%}
