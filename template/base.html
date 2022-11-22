@@ -56,16 +56,16 @@
                         <a class="nav-link" href="{% url 'employe:profile_details' %}" style="color:white;">Profile</a>
                       </li>
                       <li class="nav-item">
+                        <a class="nav-link" href="{% url 'change_password' %}" style="color:white;">Change Password</a>
+                      </li>
+                      <li class="nav-item">
                         <a class="nav-link" href="{% url 'employe:usr_note' %}" style="color:white;">Notification</a>
                       </li>
                       <li class="nav-item">
+                        <a class="nav-link" href="{% url 'employe:UserToAdmin' %}" style="color:white;">User Convey</a>
+                      </li>
+                      <li class="nav-item">
                         <a class="nav-link" href="{% url 'logout' %}" style="color:white;">Logout</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="{% url 'employe:UserToAdmin' %}" style="color:white;">UserTOadmin</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="{% url 'change_password' %}" style="color:white;">Change Password</a>
                       </li>
                       
                     {% else %}
