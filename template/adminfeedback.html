@@ -2,8 +2,13 @@
 {%load static%}
 {% load bootstrap5%}
 {% block body %}
+<style>
+    body{
+        background-image: url('../static/finalimg.webp');
+    }
+</style>
 
-    <div>
+    <div class="container">
         <form  method="post">
             {% csrf_token %}
             {% bootstrap_form form %}

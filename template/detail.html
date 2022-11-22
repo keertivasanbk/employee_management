@@ -1,6 +1,11 @@
 {% extends 'base.html' %}
 {% block body %}
 {% load static %}
+<style>
+    body{
+        background-image: url('../static/finalimg.webp');
+    }
+</style>
 <div class="container" style="text-align: center;" id="details">
     <h1><b>Employee Detail</b></h1>
     <img src="{{employe_detail.qrcode.url}}"></img>

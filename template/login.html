@@ -3,7 +3,7 @@
 {% block body %}
 <style>
     body{
-        background-image: url('../static/admin3.jpg');
+        background-image: url('../static/finalimg.webp');
     }
 </style>
 <div class="container">
@@ -13,6 +13,6 @@
         {% bootstrap_form form %}
         <input type="submit" class="btn btn-primary" value="Login">
     </form>
-    <button><a href="{% url 'password_reset'%}">Forgot Password</a></button>
+    <a href="{% url 'password_reset'%}">Forgot Password</a>
 </div>
 {% endblock %}
